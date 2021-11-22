@@ -1,7 +1,9 @@
 import { makeAutoObservable } from "mobx";
+
 import {api} from "./api";
 import decode from "jwt-decode";
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 class AuthStore {
     user = null;
@@ -28,7 +30,7 @@ class AuthStore {
         // localStorage.setItem("myToken", res.data.token);
         // console.log(res.data.token)
         this.setUser(res.data.token);
-        navigation.navigate("CartList")
+        navigation.navigate("TripList")
       } catch (error) {
         // alert(error);
         toast.show({
@@ -46,7 +48,7 @@ class AuthStore {
         const res = await api.post("/signin", user);
         // localStorage.setItem("myToken", res.data.token);
         this.setUser(res.data.token);
-        navigation.replace("Home")
+        navigation.replace("TripList")
       } catch (error) {
         // alert(error);
         toast.show({
@@ -58,7 +60,7 @@ class AuthStore {
       }
     };
   
-    logOut = async (toast) => {
+    logOut = async (toast,navigation) => {
         try {
         delete api.defaults.headers.common.Authorization;
         await AsyncStorage.removeItem("myToken");
@@ -69,6 +71,7 @@ class AuthStore {
             placement: "top",
             status: "success",
         })
+        navigation.replace("Signin")
         
         } catch (error) {
             console.log(error)

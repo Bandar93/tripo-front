@@ -13,11 +13,11 @@ import {
     useToast
   } from "native-base"
   import { useState } from "react"
-import authStore from "../../stores/authStore";
+import authStore from "../../Stores/authStore"
 
 
   
-const Home = ({navigation}) => {
+const Signin = ({navigation}) => {
     const toast = useToast()
      const [user, setUser] = useState({
          username: "",
@@ -110,4 +110,4 @@ const Home = ({navigation}) => {
       )
     }
 
-export default Home
+export default Signin

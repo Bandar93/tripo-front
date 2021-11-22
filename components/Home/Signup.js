@@ -13,7 +13,7 @@ import {
     useToast
   } from "native-base"
   import { useState } from "react"
-import authStore from "../../stores/authStore";
+import authStore from "../../Stores/authStore";
 
   
 const Signup = ({navigation}) => {
