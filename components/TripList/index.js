@@ -1,11 +1,12 @@
-import { observer } from 'mobx-react';
-import React from 'react'
-import {  View } from 'react-native'
-import TripItem from "./TripItem"
-import tripStore from '../../Stores/tripStore'
-import { Button, useToast } from 'native-base';
+import { observer } from "mobx-react";
+import React from "react";
+import { View } from "react-native";
+import TripItem from "./TripItem";
+import tripStore from "../../Stores/tripStore";
+import { Button, useToast } from "native-base";
 import authStore from "../../Stores/authStore";
 import Profile from '../Profile';
+
 
 const TripList = ({navigation}) => {
     const toast = useToast();
@@ -29,5 +30,6 @@ const TripList = ({navigation}) => {
         </View>
     )
     }
+
 
 export default observer(TripList);
