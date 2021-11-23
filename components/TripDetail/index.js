@@ -24,8 +24,8 @@ const TripDetail = ({navigation , route}) => {
             style={{width:50, height:50}} />
 
             
-            <Button onPress={addTrip}>Add trip</Button>
-            <Button onPress={deleteTrip}>delete trip</Button>
+            {/* <Button onPress={addTrip}>Add trip</Button>
+            <Button onPress={deleteTrip}>delete trip</Button> */}
 
             <Text>{trip.description}</Text>
         </View>
