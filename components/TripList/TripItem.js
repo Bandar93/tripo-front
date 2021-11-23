@@ -15,7 +15,7 @@ const TripItem = ({trip,navigation}) => {
             source={{uri: baseURL + trip.image}}
             style={{width:50, height:50}}
             />
-            <Text>{trip.description}</Text>
+            
         </View>
     )
 }
