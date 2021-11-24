@@ -1,3 +1,4 @@
+
 import { observer } from "mobx-react";
 import React from "react";
 import { View, Text, Image } from "react-native";
@@ -46,5 +47,6 @@ const TripItem = ({ trip, navigation }) => {
     </View>
   );
 };
+
 
 export default observer(TripItem);

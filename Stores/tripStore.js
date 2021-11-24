@@ -20,13 +20,8 @@ class TripStore {
             console.log(error)
         }
     }
-    addTrip = async (newTrip) => {
-        const foundTrip = this.trips.find((trip) => trip.tripId === newTrip.tripId);
-    
-        if (foundTrip) {
-          foundTrip.quantity += newTrip.quantity;
-        } else this.trips.push(newTrip);
-        await AsyncStorage.setTrip("myTrip", JSON.stringify(this.trips));
+    addTrip = (newTrip) => {
+        this.trip.push(newTrip);
       };
 
     deleteTrip = async (tripId) => {

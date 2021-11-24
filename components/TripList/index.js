@@ -8,6 +8,8 @@ import authStore from "../../Stores/authStore";
 import Profile from "../Profile";
 import MIcon from "react-native-vector-icons/MaterialIcons";
 import AIcon from "react-native-vector-icons/AntDesign";
+import addTrip from "../../Stores/tripStore"
+import CreateTrip from '../CreateTrip';
 
 const TripList = ({ navigation }) => {
   const toast = useToast();
@@ -17,6 +19,9 @@ const TripList = ({ navigation }) => {
   const tripList = tripStore.trip.map((trip) => (
     <TripItem trip={trip} navigation={navigation} key={trip._id} />
   ));
+ const handleAdd = () => {
+    navigation.navigate("CreateTrip")
+  };
 
   return (
     <View
@@ -72,8 +77,10 @@ const TripList = ({ navigation }) => {
         />
       </VStack>
       <ScrollView horizontal={true}>{tripList}</ScrollView>
+      <Button onPress={handleAdd}>add trip</Button>
     </View>
   );
 };
+
 
 export default observer(TripList);

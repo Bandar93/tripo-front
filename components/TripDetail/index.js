@@ -1,3 +1,4 @@
+
 import { observer } from "mobx-react";
 import { Center, Spinner } from "native-base";
 import React from "react";
@@ -54,3 +55,4 @@ const TripDetail = ({ navigation, route }) => {
 };
 
 export default observer(TripDetail);
+
