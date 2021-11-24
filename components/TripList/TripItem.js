@@ -5,6 +5,8 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import { baseURL } from "../../Stores/api";
 
 const TripItem = ({ trip, navigation }) => {
+  // REVIEW: Put the styling in its own file
+
   return (
     <View>
       <Text

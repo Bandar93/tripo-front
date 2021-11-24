@@ -13,6 +13,7 @@ export default function App() {
   );
 }
 
+// REVIEW: remove if not using
 const styles = StyleSheet.create({
   container: {
     flex: 1,

@@ -6,10 +6,11 @@ import { baseURL } from "../../Stores/api";
 import tripStore from "../../Stores/tripStore";
 import addTrip from "../../Stores/tripStore";
 import deleteTrip from "../../Stores/tripStore";
-
+// REVIEW: Remove unused imports
 const TripDetail = ({ navigation, route }) => {
   if (tripStore.isLoading) return <Spinner />;
   const trip = route.params.trip;
+  // REVIEW: Put the styling in its own file
   return (
     <View style={{ alignItems: "center" }}>
       <Text
