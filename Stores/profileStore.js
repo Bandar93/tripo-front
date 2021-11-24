@@ -14,7 +14,7 @@ class ProfileStore {
 
     profileUpdate = async (profileUpdate) => {
         try {
-          const res = await api.put("/profile", profileUpdate);
+          const res = await api.put(`/profile/${profileUpdate._id}`, profileUpdate);
            this.profile = res.data
         } catch (error) {
           console.log(error);
