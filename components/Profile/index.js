@@ -1,12 +1,29 @@
+
+import { observer } from "mobx-react";
 import React from 'react'
-import { View,  Button, Text } from 'react-native'
+import profileStore from '../../Stores/profileStore'
+import {  Button, Input, FormControl, Center }  from "native-base"
+import { useState } from "react"
+
 
 const Profile = () => {
+
+const [profile, setProfile] = useState({
+    bio:"",
+    
+})
+const handelSubmit = () => {
+    profileStore.profileUpdate(profile); 
+}
     return (
-        <View>
-            <Text>Test</Text>
-        </View>
+        <Center>
+            <FormControl>
+            <FormControl.Label>UserName</FormControl.Label>
+            <Input onChangeText={(value) => setProfile({...profile, bio: value})} />
+            </FormControl>
+            <Button onPress={handelSubmit}>Update</Button>
+        </Center>
     )
 }
 
-export default Profile
+export default observer(Profile);
