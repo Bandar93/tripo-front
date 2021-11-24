@@ -65,12 +65,12 @@ class AuthStore {
         delete api.defaults.headers.common.Authorization;
         await AsyncStorage.removeItem("myToken");
         this.user = null;
-        toast.show({
-            title:"Log out",
-            description: "log out successfully",
-            placement: "top",
-            status: "success",
-        })
+        // toast.show({
+        //     title:"Log out",
+        //     description: "log out successfully",
+        //     placement: "top",
+        //     status: "success",
+        // })
         navigation.replace("Signin")
         
         } catch (error) {

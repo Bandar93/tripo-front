@@ -3,6 +3,7 @@ import {api} from "./api";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 
+
 class TripStore {
     trip = [];
     isLoading = true;
@@ -20,13 +21,33 @@ class TripStore {
             console.log(error)
         }
     }
-    addTrip = (newTrip) => {
-        this.trip.push(newTrip);
+    addTrip = async (trip,navigation,toast) => {
+        // this.trip.push(newTrip);
+     try {
+         const res = await api.post("/trips",trip);
+         this.trip.push(res.data)
+        //  toast.show({
+        //     title:"successfully",
+        //     description:"created",
+        //     placement:"top",
+        //     status:"success!!!!!",
+        // })
+         navigation.replace("TripList")
+         
+        } catch (error) {
+         console.log(error)
+        }
       };
 
-    deleteTrip = async (tripId) => {
-      this.trips = this.trips.filter((trip) => tripId !== trip.tripId);
-      await AsyncStorage.setTrip("myTrip", JSON.stringify(this.trips));
+    deleteTrip = async (tripId,navigation) => {
+
+    try {
+     await api.delete(`/trips/${trip._id}`),  
+    this.trips = this.trips.filter((trip) => trip._id !== tripId);
+    navigation.replace("TripList")
+   } catch (error) {
+       console.log(error)
+   }
       };
 }
 
