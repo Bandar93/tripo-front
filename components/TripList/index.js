@@ -56,7 +56,7 @@ const TripList = ({ navigation }) => {
           style={{ color: "black", padding: 15 }}
           name="profile"
           size={27}
-          onPress={Profile}
+          onPress={() => navigation.navigate("Profile")}
         />
         <MIcon
           style={{ color: "red", padding: 15, opacity: 0.8 }}
