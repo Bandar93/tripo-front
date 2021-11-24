@@ -1,7 +1,7 @@
 import { observer } from "mobx-react";
-
 import React from "react";
 import { View, Text, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import { baseURL } from "../../Stores/api";
 
 const TripItem = ({ trip, navigation }) => {
@@ -10,33 +10,39 @@ const TripItem = ({ trip, navigation }) => {
       <Text
         style={{
           position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
+          top: 10,
+          left: 31,
           justifyContent: "center",
           alignItems: "center",
-          fontSize: 50,
-          marginLeft: 50,
+          fontSize: 20,
           color: "#5E5E5A",
+          width: 15,
+          fontWeight: "bold",
+          fontVariant: ["small-caps"],
+          textShadowColor: "rgba(0, 0, 0, 0.75)",
+          textShadowOffset: { width: -1, height: 1 },
+          textShadowRadius: 2,
         }}
-        onPress={() => navigation.navigate("TripDetail", { trip: trip })}
       >
         {trip.name}
       </Text>
-      <Image
-        source={{ uri: baseURL + trip.image }}
-        style={{
-          height: "80%",
-          width: "90%",
-          borderRadius: 30,
-          margin: 40,
-          padding: 30,
-          opacity: 0.8,
-          borderColor: "black",
-          borderTopWidth: 5,
-        }}
-      />
+      <TouchableOpacity
+        onPress={() => navigation.navigate("TripDetail", { trip: trip })}
+      >
+        <Image
+          source={{ uri: baseURL + trip.image }}
+          style={{
+            height: "90%",
+            width: "90%",
+            borderRadius: 30,
+            margin: 30,
+            padding: 30,
+            opacity: 0.7,
+            borderColor: "black",
+            borderTopWidth: 5,
+          }}
+        />
+      </TouchableOpacity>
     </View>
   );
 };
