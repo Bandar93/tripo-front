@@ -1,4 +1,3 @@
-
 import { observer } from "mobx-react";
 import { Center, Spinner } from "native-base";
 import React from "react";
@@ -12,24 +11,14 @@ const TripDetail = ({ navigation, route }) => {
   if (tripStore.isLoading) return <Spinner />;
   const trip = route.params.trip;
   return (
-    <View>
+    <View style={{ alignItems: "center" }}>
       <Text
         style={{
           fontSize: 30,
-          position: "absolute",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          justifyContent: "center",
-          alignItems: "center",
+          fontWeight: "bold",
         }}
       >
-        Name: {trip.name}
-        {"\n"}
-        Description: {trip.description}
-        {"\n"}
-        Owner: {trip.owner.username}
+        {trip.name}
       </Text>
       <Image
         source={{ uri: baseURL + trip.image }}
@@ -37,17 +26,31 @@ const TripDetail = ({ navigation, route }) => {
           height: 500,
           width: "100%",
           borderRadius: 50,
-          opacity: 0.4,
+          opacity: 0.8,
           borderWidth: 5,
         }}
       />
+      <Text
+        style={{
+          fontSize: 20,
+        }}
+      >
+        {trip.description}
+      </Text>
+      <Text
+        style={{
+          fontSize: 15,
+          opacity: 0.6,
+        }}
+      >
+        {" "}
+        Traveller: {trip.owner.username}
+      </Text>
+      {/* <Button onPress={addTrip}>Add trip</Button>
 
-      <Button onPress={addTrip}>Add trip</Button>
-
-      <Button onPress={deleteTrip}>delete trip</Button>
+      <Button onPress={deleteTrip}>delete trip</Button> */}
     </View>
   );
 };
 
 export default observer(TripDetail);
-

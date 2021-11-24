@@ -1,11 +1,10 @@
-
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import Signin from "../Home/Signin";
 import Signup from "../Home/Signup";
 import TripList from "../TripList";
 import TripDetail from "../TripDetail";
-import Profile from "../Profile"
+import Profile from "../Profile";
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -25,22 +24,19 @@ const Navigation = () => {
           headerStyle: { backgroundColor: "#F6F2EB" },
           headerTintColor: "#5E5E5A",
           headerTitleAlign: "center",
+          headerShown: false,
         }}
       />
       <Screen
         name="TripDetail"
         component={TripDetail}
         options={{
-          title: "Details",
-          headerStyle: { backgroundColor: "#F6F2EB" },
-          headerTintColor: "#5E5E5A",
-          headerTitleAlign: "center",
+          title: " ",
         }}
       />
-<Screen name="Profile" component={Profile}/> 
+      <Screen name="Profile" component={Profile} />
     </Navigator>
   );
 };
-
 
 export default Navigation;
