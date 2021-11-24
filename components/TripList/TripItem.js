@@ -1,6 +1,6 @@
 import { observer } from 'mobx-react'
 import React from 'react'
-import { View, Text , Image} from 'react-native'
+import { View, Text , Image } from 'react-native'
 import { baseURL } from '../../Stores/api'
 
 
@@ -15,6 +15,7 @@ const TripItem = ({trip,navigation}) => {
             source={{uri: baseURL + trip.image}}
             style={{width:50, height:50}}
             />
+            
             
         </View>
     )

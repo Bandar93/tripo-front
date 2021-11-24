@@ -5,6 +5,8 @@ import TripItem from "./TripItem"
 import tripStore from '../../Stores/tripStore'
 import { Button, useToast } from 'native-base';
 import authStore from "../../Stores/authStore";
+import addTrip from "../../Stores/tripStore"
+import CreateTrip from '../CreateTrip';
 
 const TripList = ({navigation}) => {
     const toast = useToast();
@@ -15,15 +17,17 @@ const TripList = ({navigation}) => {
        <TripItem trip={trip} navigation={navigation} key={trip._id} />
        
    ));
+
+   const handleAdd = () => {
+    navigation.navigate("CreateTrip")
+  };
  
     
     return (
         <View>
             {tripList}
             <Button onPress={logout} >Log out</Button>
-            
-            
-            
+            <Button onPress={handleAdd}>add trip</Button>
         </View>
     )
     }
