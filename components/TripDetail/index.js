@@ -1,16 +1,19 @@
 
 import { observer } from "mobx-react";
-import { Center, Spinner } from "native-base";
+import { Center, Spinner, Button } from "native-base";
 import React from "react";
-import { View, Text, Image, Button } from "react-native";
+import { View, Text, Image } from "react-native";
 import { baseURL } from "../../Stores/api";
 import tripStore from "../../Stores/tripStore";
-import addTrip from "../../Stores/tripStore";
-import deleteTrip from "../../Stores/tripStore";
+
 
 const TripDetail = ({ navigation, route }) => {
   if (tripStore.isLoading) return <Spinner />;
   const trip = route.params.trip;
+
+  const Delete =() =>{
+      tripStore.deleteTrip(tripId,navigation)
+  }
   return (
     <View style={{ alignItems: "center" }}>
       <Text
@@ -47,9 +50,8 @@ const TripDetail = ({ navigation, route }) => {
         {" "}
         Traveller: {trip.owner.username}
       </Text>
-      {/* <Button onPress={addTrip}>Add trip</Button>
 
-      <Button onPress={deleteTrip}>delete trip</Button> */}
+      <Button onPress={Delete}>delete trip</Button> 
     </View>
   );
 };

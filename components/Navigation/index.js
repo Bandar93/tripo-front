@@ -6,6 +6,7 @@ import Signup from "../Home/Signup";
 import TripList from "../TripList";
 import TripDetail from "../TripDetail";
 import Profile from "../Profile";
+import CreateTrip from "../CreateTrip";
 
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
@@ -36,6 +37,7 @@ const Navigation = () => {
         }}
       />
       <Screen name="Profile" component={Profile} />
+      <Screen name="CreateTrip" component={CreateTrip} />
     </Navigator>
   );
 };
