@@ -1,9 +1,8 @@
 
 import { observer } from "mobx-react";
 import React from 'react'
-import { View } from 'react-native'
 import profileStore from '../../Stores/profileStore'
-import {  Button, Input }  from "native-base"
+import {  Button, Input, FormControl, Center }  from "native-base"
 import { useState } from "react"
 
 
@@ -17,11 +16,13 @@ const handelSubmit = () => {
     profileStore.profileUpdate(profile); 
 }
     return (
-        <View>
+        <Center>
+            <FormControl>
+            <FormControl.Label>UserName</FormControl.Label>
             <Input onChangeText={(value) => setProfile({...profile, bio: value})} />
+            </FormControl>
             <Button onPress={handelSubmit}>Update</Button>
-            
-        </View>
+        </Center>
     )
 }
 
