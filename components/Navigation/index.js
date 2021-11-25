@@ -9,6 +9,9 @@ import CreateTrip from "../CreateTrip";
 import { Image } from "react-native";
 import { Container } from "native-base";
 
+
+
+
 const Navigation = () => {
   const { Navigator, Screen } = createStackNavigator();
   return (
@@ -37,6 +40,7 @@ const Navigation = () => {
           title: " ",
         }}
       />
+
       <Screen
         name="Profile"
         component={Profile}
@@ -87,6 +91,7 @@ const Navigation = () => {
           ),
         }}
       />
+
     </Navigator>
   );
 };

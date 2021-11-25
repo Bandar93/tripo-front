@@ -13,10 +13,12 @@ import {
   Text,
 } from "native-base";
 
+
+
 const Profile = () => {
-  const [profile, setProfile] = useState({
-    bio: "",
-  });
+
+  const findpforile = profileStore.profile
+  const [profile, setProfile] = useState(findpforile);
   const handelSubmit = () => {
     profileStore.profileUpdate(profile);
   };
@@ -34,9 +36,9 @@ const Profile = () => {
               fontWeight: "bold",
             }}
           >
-            Username
+            Bio
           </Text>
-          <Input
+          <Input value={profile.bio}
             onChangeText={(value) => setProfile({ ...profile, bio: value })}
           />
           <Button
@@ -53,5 +55,6 @@ const Profile = () => {
     </Center>
   );
 };
+
 
 export default observer(Profile);
