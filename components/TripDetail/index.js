@@ -1,19 +1,17 @@
-
 import { observer } from "mobx-react";
-import { Center, Spinner, Button } from "native-base";
+import { Spinner, Button } from "native-base";
 import React from "react";
 import { View, Text, Image } from "react-native";
 import { baseURL } from "../../Stores/api";
 import tripStore from "../../Stores/tripStore";
 
-
 const TripDetail = ({ navigation, route }) => {
   if (tripStore.isLoading) return <Spinner />;
   const trip = route.params.trip;
 
-  const Delete =() =>{
-      tripStore.deleteTrip(tripId,navigation)
-  }
+  const Delete = () => {
+    tripStore.deleteTrip(trip._id, navigation);
+  };
   return (
     <View style={{ alignItems: "center" }}>
       <Text
@@ -26,6 +24,7 @@ const TripDetail = ({ navigation, route }) => {
       </Text>
       <Image
         source={{ uri: baseURL + trip.image }}
+        alt="Wrong IP!"
         style={{
           height: 500,
           width: "100%",
@@ -51,10 +50,9 @@ const TripDetail = ({ navigation, route }) => {
         Traveller: {trip.owner.username}
       </Text>
 
-      <Button onPress={Delete}>delete trip</Button> 
+      <Button onPress={Delete}>delete trip</Button>
     </View>
   );
 };
 
 export default observer(TripDetail);
-

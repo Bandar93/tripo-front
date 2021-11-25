@@ -1,4 +1,3 @@
-
 import { observer } from "mobx-react";
 import React from "react";
 import { View, Text, Image } from "react-native";
@@ -32,6 +31,7 @@ const TripItem = ({ trip, navigation }) => {
       >
         <Image
           source={{ uri: baseURL + trip.image }}
+          alt="Wrong IP!"
           style={{
             height: "90%",
             width: "90%",
@@ -47,6 +47,5 @@ const TripItem = ({ trip, navigation }) => {
     </View>
   );
 };
-
 
 export default observer(TripItem);
