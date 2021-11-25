@@ -31,6 +31,9 @@ const TripDetail = ({ navigation, route }) => {
           borderRadius: 50,
           opacity: 0.8,
           borderWidth: 5,
+          ShadowColor: "rgba(0, 0, 0, 0.75)",
+          ShadowOffset: { width: -1, height: 1 },
+          ShadowRadius: 3,
         }}
       />
       <Text

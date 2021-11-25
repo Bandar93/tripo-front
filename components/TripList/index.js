@@ -85,29 +85,36 @@ const TripList = ({ navigation }) => {
         />
       </VStack> */}
 
-      <ScrollView horizontal={true}>
+      <ScrollView
+        horizontal={true}
+        style={{
+          marginLeft: 20,
+        }}
+      >
         {tripList}
-        <FloatingAction
-          actions={actions}
-          color="grey"
-          onPressItem={(name) => {
-            navigation.navigate(name);
-          }}
-          position="left"
-        />
-        <MIcon
-          style={{
-            color: "red",
-            padding: 15,
-            opacity: 0.8,
-            position: "absolute",
-            marginTop: "65%",
-          }}
-          name="logout"
-          size={27}
-          onPress={logout}
-        />
       </ScrollView>
+      <FloatingAction
+        actions={actions}
+        color="grey"
+        onPressItem={(name) => {
+          navigation.navigate(name);
+        }}
+        position="left"
+      />
+      <MIcon
+        style={{
+          color: "red",
+          padding: 15,
+          opacity: 0.8,
+          position: "absolute",
+          textShadowColor: "rgba(0, 0, 0, 0.75)",
+          textShadowOffset: { width: -1, height: 1 },
+          textShadowRadius: 3,
+        }}
+        name="logout"
+        size={27}
+        onPress={logout}
+      />
     </View>
   );
 };

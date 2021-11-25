@@ -1,9 +1,16 @@
 import { observer } from "mobx-react";
 import React from "react";
-import { Text } from "react-native";
 import { useState } from "react";
-import { FormControl, Input, Button, useToast } from "native-base";
 import tripStore from "../../Stores/tripStore";
+import {
+  Box,
+  FormControl,
+  Input,
+  Button,
+  Center,
+  useToast,
+  Text,
+} from "native-base";
 
 const CreateTrip = ({ navigation }) => {
   const toast = useToast();
@@ -17,15 +24,45 @@ const CreateTrip = ({ navigation }) => {
   };
 
   return (
-    <FormControl>
-      <FormControl.Label>Trip name</FormControl.Label>
-      <Input onChangeText={(value) => setTrip({ ...trip, name: value })} />
-      <FormControl.Label>description</FormControl.Label>
-      <Input
-        onChangeText={(value) => setTrip({ ...trip, description: value })}
-      />
-      <Button onPress={handleSubmit}>add trip</Button>
-    </FormControl>
+    <Center flex={1} px="3">
+      <Box safeArea p="2" py="8" w="90%" maxW="290">
+        <FormControl
+          style={{
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+            }}
+          >
+            Trip Name
+          </Text>
+          <Input onChangeText={(value) => setTrip({ ...trip, name: value })} />
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+            }}
+          >
+            Description
+          </Text>
+          <Input
+            onChangeText={(value) => setTrip({ ...trip, description: value })}
+          />
+          <Button
+            style={{
+              marginTop: 10,
+              backgroundColor: "black",
+            }}
+            onPress={handleSubmit}
+          >
+            Add Trip
+          </Button>
+        </FormControl>
+      </Box>
+    </Center>
   );
 };
 
