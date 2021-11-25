@@ -1,34 +1,60 @@
-
 import { observer } from "mobx-react";
-import React from 'react'
-import profileStore from '../../Stores/profileStore'
-import {  Button, Input, FormControl, Center }  from "native-base"
-import { useState } from "react"
+import React from "react";
+import profileStore from "../../Stores/profileStore";
 
+import { useState } from "react";
+import {
+  Box,
+  FormControl,
+  Input,
+  Button,
+  Center,
+  useToast,
+  Text,
+} from "native-base";
 
 
 
 const Profile = () => {
 
-const findpforile = profileStore.profile
+  const findpforile = profileStore.profile
+  const [profile, setProfile] = useState(findpforile);
+  const handelSubmit = () => {
+    profileStore.profileUpdate(profile);
+  };
+  return (
+    <Center flex={1} px="3">
+      <Box safeArea p="2" py="8" w="90%" maxW="290">
+        <FormControl
+          style={{
+            alignItems: "center",
+          }}
+        >
+          <Text
+            style={{
+              fontSize: 20,
+              fontWeight: "bold",
+            }}
+          >
+            Bio
+          </Text>
+          <Input value={profile.bio}
+            onChangeText={(value) => setProfile({ ...profile, bio: value })}
+          />
+          <Button
+            style={{
+              marginTop: 10,
+              backgroundColor: "black",
+            }}
+            onPress={handelSubmit}
+          >
+            Update
+          </Button>
+        </FormControl>
+      </Box>
+    </Center>
+  );
+};
 
-const [profile, setProfile] = useState(findpforile)
-const handelSubmit = () => {
-    profileStore.profileUpdate(profile); 
-}
-    return (
-        
-        <Center>
-            <FormControl>
-
-            <FormControl.Label>Bio</FormControl.Label>
-            <Input value={profile.bio}
-             onChangeText={(value) => setProfile({...profile, bio: value})} />
-            </FormControl>
-            <Button onPress={handelSubmit}>Update</Button>
-        </Center>
-        
-    )
-}
 
 export default observer(Profile);
