@@ -11,6 +11,14 @@ class ProfileStore {
         makeAutoObservable(this);
     }
 
+    fetchProfile = async () => {
+      try {
+        const res = await api.get("/profile");
+        this.profile = res.data;
+      } catch (error) {
+        console.log(error);
+      }
+
 
     profileUpdate = async (profileUpdate) => {
         try {
@@ -23,6 +31,8 @@ class ProfileStore {
 
 
 }
+}
 
-const profileStore = new ProfileStore
+const profileStore = new ProfileStore();
+profileStore.fetchProfile();
 export default profileStore
